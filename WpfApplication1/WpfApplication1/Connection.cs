@@ -20,5 +20,18 @@ namespace WpfApplication1
                 return null;
             }
         }
+
+        public static void loadPrograms(ComboBox comboBox) {
+            SqlConnection connection = addConnection();
+            if (connection != null) {
+                SqlCommand command = new SqlCommand("SELECT * FROM programa;", connection);
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read()) {
+                    
+                }
+            } else {
+                MessageBox.Show("Ocurrió un error al cargar los programas");
+            }
+        }
     }
 }

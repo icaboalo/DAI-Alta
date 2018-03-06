@@ -33,10 +33,12 @@ namespace WpfApplication1
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read()) {
                     if (txPassword.Text == reader.GetString(0)) {
+                        reader.Close();
+                        connection.Close();
                         MessageBox.Show("Inicio de sesión completo!");
                         Window alta = new Alta();
                         alta.Show();
-                        this.Close();                     
+                        this.Close();                   
                     } else {
                         MessageBox.Show("Credenciales invalidas");
                     }
