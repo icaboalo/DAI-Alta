@@ -33,5 +33,21 @@ namespace WpfApplication1 {
             Modificar w = new Modificar(this);
             w.Show();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            new Buscar(this).Show();
+            this.Hide();
+        }
+
+        private void btEliminar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btAgregar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
