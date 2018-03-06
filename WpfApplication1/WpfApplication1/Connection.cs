@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace WpfApplication1
 {
@@ -21,15 +22,20 @@ namespace WpfApplication1
             }
         }
 
-        public static void loadPrograms(ComboBox comboBox) {
+        public static void loadPrograms(ComboBox comboBox)
+        {
             SqlConnection connection = addConnection();
-            if (connection != null) {
+            if (connection != null)
+            {
                 SqlCommand command = new SqlCommand("SELECT * FROM programa;", connection);
                 SqlDataReader reader = command.ExecuteReader();
-                while (reader.Read()) {
-                    
+                while (reader.Read())
+                {
+
                 }
-            } else {
+            }
+            else
+            {
                 MessageBox.Show("Ocurrió un error al cargar los programas");
             }
         }

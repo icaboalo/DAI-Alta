@@ -20,5 +20,18 @@ namespace WpfApplication1 {
         public Alta() {
             InitializeComponent();
         }
+
+        private void btSalir_Click(object sender, RoutedEventArgs e)
+        {
+            new MainWindow().Show();
+            this.Close();
+        }
+
+        private void btModificar_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            Modificar w = new Modificar(this);
+            w.Show();
+        }
     }
 }
