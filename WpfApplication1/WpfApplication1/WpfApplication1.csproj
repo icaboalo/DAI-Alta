@@ -59,6 +59,9 @@
       <DependentUpon>Alta.xaml</DependentUpon>
     </Compile>
     <Compile Include="Alumno.cs" />
+    <Compile Include="Buscar.xaml.cs">
+      <DependentUpon>Buscar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Modificar.xaml.cs">
       <DependentUpon>Modificar.xaml</DependentUpon>
     </Compile>
@@ -68,6 +71,10 @@
       <DependentUpon>registro2DataSet.xsd</DependentUpon>
     </Compile>
     <Page Include="Alta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Buscar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
