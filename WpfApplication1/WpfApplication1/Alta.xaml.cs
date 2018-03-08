@@ -42,13 +42,14 @@ namespace WpfApplication1 {
         }
 
         private void btEliminar_Click(object sender, RoutedEventArgs e) {
-
+            //new Baja(this).Show();
+            this.Hide();
         }
 
         private void btAgregar_Click(object sender, RoutedEventArgs e) {
             int res = new Alumno(Int16.Parse(tbFolio.Text), tbNombre.Text, tbCorreo.Text, 
                        tbSexo.Text, Int16.Parse(tbSemestre.Text), 
-                       cbProgramas.SelectedIndex + 1).altaAlumno();
+                       Int16.Parse(String.Format("{0}", cbProgramas.SelectedIndex + 1))).altaAlumno();
             if (res > 0) {
                 MessageBox.Show("Alumno registrado");
             } else {

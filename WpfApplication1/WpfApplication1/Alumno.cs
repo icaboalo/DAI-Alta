@@ -17,18 +17,15 @@ namespace WpfApplication1
 
         }
 
-        public Alumno(Int16 cu, String nombre, String correo, String sexo, Int16 semestre, Int16 programa) {
-            this.cu = cu;
+        public Alumno(Int16 cu, String nombre, String correo, String sexo, Int16 semestre, Int16 programa) : this (cu, correo) {
             this.nombre = nombre;
-            this.correo = correo;
             this.sexo = sexo;
             this.semestre = semestre;
             this.programa = programa;
         }
 
-        public Alumno(Int16 cu, String correo) {
+        public Alumno(Int16 cu, String correo): this (cu) {
             this.correo = correo;
-            this.cu = cu;
         }
 
         public Alumno(String correo) {

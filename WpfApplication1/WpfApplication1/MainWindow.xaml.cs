@@ -43,6 +43,10 @@ namespace WpfApplication1
                         MessageBox.Show("Credenciales invalidas");
                     }
                 }
+            } else {
+                Window alta = new Alta();
+                alta.Show();
+                this.Close();
             }
         }
     }
