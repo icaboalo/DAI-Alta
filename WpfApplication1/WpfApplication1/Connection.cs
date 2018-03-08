@@ -27,11 +27,11 @@ namespace WpfApplication1
             SqlConnection connection = addConnection();
             if (connection != null)
             {
-                SqlCommand command = new SqlCommand("SELECT * FROM programa;", connection);
+                SqlCommand command = new SqlCommand("SELECT nombre FROM programa;", connection);
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-
+                    comboBox.Items.Add(reader.GetString(0));
                 }
             }
             else

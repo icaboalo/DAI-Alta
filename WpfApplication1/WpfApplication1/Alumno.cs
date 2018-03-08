@@ -9,46 +9,65 @@ namespace WpfApplication1
 {
     class Alumno
     {
-        public Int16 cu;
-        public String nombre, correo;
+        public Int16 cu, programa, semestre;
+        public String nombre, correo, sexo;
        
         public Alumno()
         {
 
         }
-        public Alumno(Int16 cu, String correo)
-        {
+
+        public Alumno(Int16 cu, String nombre, String correo, String sexo, Int16 semestre, Int16 programa) {
+            this.cu = cu;
+            this.nombre = nombre;
+            this.correo = correo;
+            this.sexo = sexo;
+            this.semestre = semestre;
+            this.programa = programa;
+        }
+
+        public Alumno(Int16 cu, String correo) {
             this.correo = correo;
             this.cu = cu;
         }
 
-        public Alumno(String correo)
-        {
+        public Alumno(String correo) {
             this.correo = correo;
         }
-     
-        public static int borrarAlumno(Alumno alumno)
-        {
+
+        public int altaAlumno() {
             int res;
             SqlConnection con = Connection.addConnection();
-            SqlCommand cmd = new SqlCommand(String.Format("Delete "));
+            SqlCommand cmd = new SqlCommand(String.Format("INSERT INTO alumno VALUES ({0}, '{1}', '{2}', '{3}', {4}, {5})", 
+                                                          this.cu, this.nombre, 
+                                                          this.sexo, this.correo, 
+                                                          this.semestre, 
+                                                          this.programa), con);
+            res = cmd.ExecuteNonQuery();
+            con.Close();
+            return res;
+        }
+     
+        public static int borrarAlumno(Alumno alumno) {
+            int res;
+            SqlConnection con = Connection.addConnection();
+            SqlCommand cmd = new SqlCommand(String.Format("Delete "), con);
             res = cmd.ExecuteNonQuery();
             con.Close();
             return res;
         }
         
-        public int modificarAlumno()
-        {
+        public int modificarAlumno() {
             SqlConnection con;
             con = Connection.addConnection();
-            SqlCommand cmd = new SqlCommand(String.Format("UPDATE alumno SET correo = '{0}' WHERE claveUnica = '{1}';", this.correo, this.cu), con);
+            SqlCommand cmd = new SqlCommand(String.Format("UPDATE alumno SET correo = '{0}' WHERE claveUnica = '{1}';", 
+                                                          this.correo, this.cu), con);
             int res = cmd.ExecuteNonQuery();
             con.Close();
             return res;
         }
 
-        public List<Alumno> buscarAlumno()
-        {
+        public List<Alumno> buscarAlumno() {
             List<Alumno> list = new List<Alumno>();
             SqlConnection con = Connection.addConnection();
             SqlCommand cmd = new SqlCommand(String.Format("SELECT * FROM alumno WHERE nombre like '%{0}%';", this.nombre), con);

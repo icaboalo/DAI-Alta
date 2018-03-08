@@ -40,14 +40,19 @@ namespace WpfApplication1 {
             this.Hide();
         }
 
-        private void btEliminar_Click(object sender, RoutedEventArgs e)
-        {
+        private void btEliminar_Click(object sender, RoutedEventArgs e) {
 
         }
 
-        private void btAgregar_Click(object sender, RoutedEventArgs e)
-        {
-
+        private void btAgregar_Click(object sender, RoutedEventArgs e) {
+            int res = new Alumno(Int16.Parse(tbFolio.Text), tbNombre.Text, tbCorreo.Text, 
+                       tbSexo.Text, Int16.Parse(tbSemestre.Text), 
+                       cbProgramas.SelectedIndex + 1).altaAlumno();
+            if (res > 0) {
+                MessageBox.Show("Alumno registrado");
+            } else {
+                MessageBox.Show("Ocurrió un error al registrar al alumno");
+            }
         }
     }
 }
