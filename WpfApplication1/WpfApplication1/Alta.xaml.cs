@@ -19,6 +19,7 @@ namespace WpfApplication1 {
     public partial class Alta : Window {
         public Alta() {
             InitializeComponent();
+            Connection.loadPrograms(cbProgramas);
         }
 
         private void btSalir_Click(object sender, RoutedEventArgs e)

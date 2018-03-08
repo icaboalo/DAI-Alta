@@ -35,6 +35,10 @@ namespace WpfApplication1
             this.correo = correo;
         }
 
+        public Alumno(Int16 cu) {
+            this.cu = cu;
+        }
+
         public int altaAlumno() {
             int res;
             SqlConnection con = Connection.addConnection();
@@ -48,10 +52,10 @@ namespace WpfApplication1
             return res;
         }
      
-        public static int borrarAlumno(Alumno alumno) {
+        public int borrarAlumno() {
             int res;
             SqlConnection con = Connection.addConnection();
-            SqlCommand cmd = new SqlCommand(String.Format("Delete "), con);
+            SqlCommand cmd = new SqlCommand(String.Format("DELETE FROM alumno WHERE cu = {0}", this.cu), con);
             res = cmd.ExecuteNonQuery();
             con.Close();
             return res;
